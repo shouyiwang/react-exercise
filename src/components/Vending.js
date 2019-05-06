@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import Chocolate from "./Chocolate"
 
+
+const makeChocolateState = function (enoughMoney) {
+
+  return [
+    {name: "Caramel", price: 2.5, enoughMoney: enoughMoney[0]},
+    {name: "Hazelnut", price: 3.1, enoughMoney: enoughMoney[1]},
+    {name: "Organic Raw", price: 2, enoughMoney: enoughMoney[2]},
+    {name: "Mazzbuz", price: 4, enoughMoney: enoughMoney[3]},
+    {name: "White", price: 3.5, enoughMoney: enoughMoney[4]}
+  ];
+}
+
 const initialState = {
-  chocolates: [
-    {name: "Caramel", price: 2.5, enoughMoney: false},
-    {name: "Hazelnut", price: 3.1, enoughMoney: false},
-    {name: "Organic Raw", price: 2, enoughMoney: false}
-  ],
+  chocolates: makeChocolateState([false, false, false, false, false]),
   sum: 0,
   display: "",
   end: false
 };
+
+
 
 class Vending extends Component {
   constructor() {
@@ -34,11 +44,7 @@ class Vending extends Component {
     })
 
     this.setState ({
-      chocolates: [
-        {...this.state.chocolates[0], enoughMoney: enoughMoneyArray[0]},
-        {...this.state.chocolates[1], enoughMoney: enoughMoneyArray[1]},
-        {...this.state.chocolates[2], enoughMoney: enoughMoneyArray[2]}
-      ],
+      chocolates: makeChocolateState(enoughMoneyArray),
       sum: sum
     });
   }

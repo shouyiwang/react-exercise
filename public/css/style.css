@@ -34,12 +34,12 @@ button:active {
 }
 
 .enabled {
-  background-color: green;
+  background-color: blue;
   cursor:pointer;
 }
 
 .enabledChoco {
-  background-color: brown;
+  background-color: #c1c53c;
   cursor:pointer;
 }
 
